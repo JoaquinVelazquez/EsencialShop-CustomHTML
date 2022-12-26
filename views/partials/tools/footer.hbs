@@ -1,0 +1,157 @@
+<div class="instagram-contenedor invisible">
+  <h2>¡Síguenos en instagram!</h2>
+  <iframe
+    src="https://cdn.lightwidget.com/widgets/e6d7de7308c55272831b619bb797f6b4.html"
+    scrolling="no"
+    allowtransparency="true"
+    class="lightwidget-widget"
+    style="width:100%;border:0;overflow:hidden;"
+  ></iframe>
+</div>
+
+<footer class="nav-tools-footer">
+  <section class="nav-tools-footer__bound">
+    <section class="nav-tools-footer__top">
+      <div class="nav-tools-footer__info">
+        <div class="nav-tools-footer__logo">
+          <img src="https://iili.io/hs6vG1.png" alt="{{name}}" />
+          <span class="">
+          </span>
+        </div>
+
+      </div>
+      {{! <div class="nuestra-empresa-contenedor">
+        <p>Nuestra Empresa</p>
+
+        <div class="nuestra-empresa-enlaces-contenedor">
+          <div class="nuestra-empresa-enlaces-uno">
+            <a href="">Decohogar</a>
+            <a href="">Cocina</a>
+            <a href="">Deporte</a>
+            <a href="">Mascotas</a>
+            <a href="">Infantil</a>
+          </div>
+          <div class="nuestra-empresa-enlaces-dos">
+            <a href="">Belleza</a>
+            <a href="">Papelería</a>
+            <a href="">Esenciales</a>
+            <a href="">Quienes Somos</a>
+            <a href="">Contacto</a>
+          </div>
+        </div>
+      </div> }}
+      <div class="nav-tools-footer__pages header--custom-border">
+        <div class="nuestra-empresa-contenedor">
+          <p>Servicio al cliente</p>
+
+          <div class="nuestra-empresa-enlaces-contenedor">
+            {{! <div class="nuestra-empresa-enlaces-uno">
+              <a href="">Decohogar</a>
+              <a href="">Cocina</a>
+              <a href="">Deporte</a>
+              <a href="">Mascotas</a>
+              <a href="">Infantil</a>
+            </div>
+            <div class="nuestra-empresa-enlaces-dos">
+              <a href="">Belleza</a>
+              <a href="">Papelería</a>
+              <a href="">Esenciales</a>
+              <a href="">Quienes Somos</a>
+              <a href="">Contacto</a>
+            </div> }}
+            <div class="nuestra-empresa-enlaces-dos">
+              <a href="/p/contacto">Contacto</a>
+              <a href="/quienes-somos">Quiénes Somos</a>
+              <a href="/">Tienda</a>
+              <a href="/p/como-comprar">FAQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-tools-footer__pages header--custom-border">
+        <div class="nuestra-empresa-contenedor">
+          <p>Síguenos en nuestras redes!</p>
+
+          <div class="redes-contenedor">
+            <a
+              href="https://www.instagram.com/esencialshopcl/"
+              target="_blank"
+            ><img
+                class="instagram"
+                src="https://cdn-icons-png.flaticon.com/512/3661/3661391.png"
+                alt=""
+              /></a>
+            <a
+              href="https://www.facebook.com/esencialshopcl"
+              target="_blank"
+            ><img
+                class="facebook"
+                src="https://cdn-icons-png.flaticon.com/512/2175/2175193.png"
+                alt=""
+              /></a>
+            <a href="https://www.tiktok.com/@esencialshop" target="_blank"><img
+                class="tiktok"
+                src="https://cdn-icons-png.flaticon.com/512/1946/1946538.png"
+                alt=""
+              /></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-tools-footer__pages header--custom-border">
+        <div class="nuestra-empresa-contenedor">
+          <p>Información de la tienda</p>
+
+          <div class="nuestra-empresa-informacion-contenedor">
+            <div class="nuestra-empresa-enlaces-uno">
+              {{! <a href="https://www.google.com/maps/place/Av.+Am%C3%A9rico+Vespucio+1940,+Conchal%C3%AD,+Regi%C3%B3n+Metropolitana,+Chile/@-33.3673493,-70.6860451,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c6e2ffd29009:0xfcb0fcfbe496332c!8m2!3d-33.3673538!4d-70.6838564?hl=es" target="_blank">Américo Vespucio 1940. Conchalí. Santiago</a> }}
+              <a href="tel:+56983528940"><img
+                  src="https://cdn-icons-png.flaticon.com/512/597/597177.png"
+                  alt=""
+                />+56 9 83528940</a>
+              <a href="mailto:ventas@esencialshop.cl"><img
+                  src="https://cdn-icons-png.flaticon.com/512/646/646135.png"
+                  alt=""
+                />ventas@esencialshop.cl</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="nav-tools-footer__bottom header--custom-border">
+      <div>
+        <div class="nav-footer-about">
+          <a
+            href="{{{linkToMShopsLandingPage}}}"
+            target="_blank"
+            class=""
+          >{{i18n.powered_by}}</a>
+          {{#if linkToLegalNotices}}
+            <a
+              href="{{linkToLegalNotices.href}}"
+              class=""
+            >{{linkToLegalNotices.label}}</a>
+          {{/if}}
+          {{#if linkToLGPD}}
+            <a href="{{linkToLGPD.href}}" class="">{{linkToLGPD.label}}</a>
+          {{/if}}
+        </div>
+
+        {{#if showBusinessData}}
+          {{#with fiscalData}}
+            <div class="nav-footer-fiscal-data">
+              <p class="nav-footer-fiscal-data__name">{{legal_name}}</p>
+              <p class="nav-footer-fiscal-data__id">{{legal_doc}}</p>
+            </div>
+          {{/with}}
+        {{/if}}
+      </div>
+      {{#if showQrData}}
+        {{#with fiscalData}}
+          <a href={{qr_link}} target="_F960AFIPInfo">
+            <img class="nav-footer-afip-img" src={{qr_img}} alt="Data fiscal" />
+          </a>
+        {{/with}}
+      {{/if}}
+    </section>
+  </section>
+</footer>

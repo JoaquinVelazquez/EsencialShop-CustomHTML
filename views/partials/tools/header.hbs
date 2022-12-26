@@ -1,0 +1,370 @@
+<div class="header-wrapper header-wrapper--fixed {{headerAdditionalClasses}}" data-ms-theme="tools">
+    {{#if flash.enabled}} {{> components/flash}} {{/if}}
+    {{> components/cookieDisclaimer}}
+    <header role="banner" class="header" itemtype="http://schema.org/Store" itemid="#this" itemscope=""
+        class="nav-tools">
+        <div class="nav-tools-header__top">
+            <div class="nav-tools-header__top-bound">
+                <a href="/" id="logo-wrapper" class="nav-tools__logo-wrapper">
+                    {{#if logo}}
+                    <img id="image-logo" src="{{logo}}" alt="{{name}}" />
+                    {{else}}
+                    <span class="header--custom-text">
+                        {{name}}
+                    </span>
+                    {{/if}}
+                </a>
+                <!-- Search box -->
+                <div class="nav-tools-header__top-bound-separation">
+                    <div class="top-separation">
+                        <label class="nav-tools-header__searchbox-mock" for="search-box-toggle"> </label>
+                        <input type="checkbox" name="search-box-toggle" id="search-box-toggle" />
+                        <div class="nav-tools-header__searchbox {{hasInfoClass}}">
+                            {{#if headerMessage}}
+                            <div class="header__searchbox-info header--custom-text">
+                                {{{headerMessage}}}
+                            </div>
+                            <!-- /.header__searchbox-info header--custom-text -->
+                            {{/if}}
+                            <form class="search-box-container" id="search-form" action="{{home_url}}">
+                                <div class="close"></div>
+                                <input type="text" id="search-input" name="search-box-tools"
+                                    placeholder="{{i18n.placeholder}}" />
+                                <button type="submit" class="search-button">
+                                    {{> tools/views/partials/search}}
+                                </button>
+                                <!-- /.search-button -->
+                            </form>
+                        </div>
+                        <!-- Icons contact/cart -->
+                        <nav class="nav-tools-header__icons">
+                            {{#if contact.href}}
+                            <a href="{{contact.href}}" class="contact-button" rel="nofollow">
+                                {{> tools/views/partials/contact}}
+                            </a>
+                            {{/if}}
+                            {{#if cart.href}}
+                            <a href="{{cart.href}}" title="Carrito" class="cart-button" id="nav-cart">
+                                {{> tools/views/partials/cart-badge}}
+                                {{> tools/views/partials/cart}}
+                            </a>
+                            {{/if}}
+                            <!-- Required for menu-responsive widget -->
+                            <input type="checkbox" id="mobile-categories-menu-switch"
+                                name="nav-tools-header__menu-switch" />
+                            <label for="mobile-categories-menu-switch" id="hamburguer-menu">
+                                <span class="nav-header__hamburger"></span>
+                                <span class="nav-header__hamburger"></span>
+                                <span class="nav-header__hamburger"></span>
+                            </label>
+                            <!-- Mobile categories menu has to be a sibling of switcher-->
+                            <ul class="nav-list nav-list--vertical header--custom-background"
+                                itemtype="http://schema.org/SiteNavigationElement" itemscope>
+                                <div class="nav-tools-list--vertical__item" data-toggle="{{this.name}}">
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href=""></a>
+                                    </li>
+                                    {{!-- {{#each menu}}
+                                    <li class="nav-list__item" itemprop="name" tools-custom-data-emitter="{{@index}}">
+                                        <a href="{{this.url}}" class="nav-list__link">{{this.name}}</a>
+                                    </li>
+                                    {{/each}} --}}
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/decohogar">Decohogar</a>
+                                        <i class="fi fi-rr-angle-small-down decohogar-flecha-mobile"></i>
+                                        <div class="subcategorias subcategoria-decohogar invisible">
+                                            <ul>
+                                                <li><a href="/decohogar-adornos-y-decoraci%C3%B3n">Adornos y
+                                                        Decoración</a></li>
+                                                <li><a href="/decohogar-organizacion-y-limpieza">Organización y Limpieza</a></li>
+                                                <li><a href="/decohogar-jardin-y-aire-libre">Jardín y Aire Libre</a>
+                                                </li>
+                                                <li><a href="/decohogar">Ver Todo</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/cocina">Cocina</a>
+                                        <i class="fi fi-rr-angle-small-down cocina-flecha-mobile"></i>
+                                        <div class="subcategorias subcategoria-cocina invisible">
+                                            <ul>
+                                                <li><a href="/cocina-organizaci%C3%B3n">Organización</a></li>
+                                                <li><a href="/cocina-utensilios">Utensillos</a></li>
+                                                <li><a href="/cocina">Ver Todo</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/deporte">Deporte</a>
+                                        <i class="fi fi-rr-angle-small-down deporte-flecha-mobile"></i>
+                                        <div class="subcategorias subcategoria-deporte invisible">
+                                            <ul>
+                                                <li><a href="/deporte-accesorios">Accesorios</a></li>
+                                                <li><a href="/gym-en-casa">Gym en casa</a></li>
+                                                <li><a href="/deporte-pesas-y-mancuernas">Pesas y Mancuernas</a></li>
+                                                <li><a href="/deporte">Ver Todo</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/mascotas">Mascotas</a>
+                                        <i class="fi fi-rr-angle-small-down mascota-flecha-mobile"></i>
+                                        <div class="subcategorias subcategoria-mascota invisible">
+                                            <ul>
+                                                <li><a href="/mascotas-casas-y-camas">Casas y Camas</a></li>
+                                                <li><a href="/mascotas-higiene-y-cuidado">Higiene y Cuidados</a></li>
+                                                <li><a href="/mascotas-entretenci%C3%B3n">Entretención</a></li>
+                                                <li><a href="/mascotas-paseo">Paseo</a></li>
+                                                <li><a href="/mascotas-platos-y-dispensadores">Platos y
+                                                        Dispensadores</a></li>
+                                                <li><a href="/mascotas-rascadores">Rascadores</a></li>
+                                                <li><a href="/mascotas">Ver Todo</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/infantil">Infantil</a>
+                                        <i class="fi fi-rr-angle-small-down infantil-flecha-mobile"></i>
+                                        <div class="subcategorias subcategoria-infantil invisible">
+                                            <ul>
+                                                <li><a href="/infantil-accesorios">Accesorios</a></li>
+                                                <li><a href="/infantil-bebes">Bebés</a></li>
+                                                <li><a href="/infantil-juguetes">Juguetes</a></li>
+                                                <li><a href="/infantil-mochilas">Mochilas</a></li>
+                                                <li><a href="/infantil-vasos-y-botellas">Vasos y Botellas</a></li>
+                                                <li><a href="/infantil">Ver Todo</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/belleza">Belleza</a>
+                                        <i class="fi fi-rr-angle-small-down belleza-flecha-mobile"></i>
+                                        <div class="subcategorias subcategoria-belleza invisible">
+                                            <ul>
+                                                <li><a href="/belleza-accesorios">Accesorios</a></li>
+                                                <li><a href="/belleza-maqullaje">Maquillaje</a></li>
+                                                <li><a href="/belleza-spa">Spa</a></li>
+                                                <li><a href="/belleza">Ver Todo</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/escritorio">Escritorio</a>
+                                        <i class="fi fi-rr-angle-small-down papeleria-flecha-mobile"></i>
+                                        <div class="subcategorias subcategoria-papeleria invisible">
+                                            <ul>
+                                                <li><a href="/escritorio-gamer">Gamer</a></li>
+                                                <li><a href="/escritorio-papeleria">Papelería</a></li>
+                                                <li><a href="/escritorio">Ver Todo</a></li>
+                                            </ul>
+                                        </div>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/primavera-verano">Primavera - Verano</a>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/quienes-somos">Quienes Somos</a>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+                                    <li class="nav-tools-list--vertical__category header--custom-text">
+                                        <a href="/p/contacto">Contacto</a>
+                                        <hr class="nav-tools-list--vertical__hr header--custom-border" />
+                                    </li>
+
+                                    <li class="nav-tools-list--vertical__category header--custom-text how-buy__button"
+                                        data-js="how-buy__button" itemprop="name"
+                                        tools-custom-data-emitter="how-buy__button">
+                                        <a href="{{linkToHowBuy.href}}">{{linkToHowBuy.label}}</a>
+                                    </li>
+                                    <!-- /.nav-tools-list--vertical__category header--custom-text -->
+                                    <div class="target-subCategory-{{@index}}">
+                                        <div class="nav-tools-list--vertical__subitem">
+                                            <li class="">
+                                                <a href="{{this.url}}">SubCategoria</a>
+                                                <label for="attr-{{@../index}}-{{@index}}"
+                                                    data-js="attribute-{{@../index}}" class="toggle-menu attribute">
+                                                    <span class="nav-header__toggle"></span>
+                                                    <span class="nav-header__toggle"></span>
+                                                </label>
+                                                <!-- /.attr-x -->
+                                            </li>
+                                            <!-- /.header--custom-text -->
+                                            <div
+                                                class="nav-tools-list--vertical__attr-container target-attribute-{{@../index}}">
+                                                <li class="nav-tools-list--vertical__attribute">
+                                                    <a href="{{this.url}}">{{this.name}}</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Desktop navigation menu -->
+                    <div class="nav-tools-header__categories header--custom-background invisible">
+                        <ul itemscope itemtype="http://schema.org/SiteNavigationElement"
+                            class="nav-list nav-list--horizontal header--custom-background header--custom-text header--custom-border"
+                            id="nav-list">
+                            {{#each menu}}
+                            <li class="nav-list__item" itemprop="name" tools-custom-data-emitter="{{@index}}">
+                                <a href="{{this.url}}" class="nav-list__link">{{this.name}}</a>
+                            </li>
+                            {{/each}}
+
+                            <li class="nav-list__item nav-list__item--more" style="visibility: visible;">
+                                <div class="nav-list__link">{{i18n.moreCategories}}</div>
+                                <ul class="nav-list nav-list--dropdown header--custom-background" id="more-dropdown">
+                                    {{#each menu}}
+                                    <li class="nav-list__item header--custom-text" itemprop="name"
+                                        tools-custom-data-receiver="{{@index}}">
+                                        <a href="{{this.url}}" class="nav-list__link">{{this.name}}</a>
+                                        <span>
+                                            <hr />
+                                        </span>
+
+                                        <ul class="nav-list__item-subcategory">
+                                            {{#each this.nodes}}
+                                            <li class="nav-tools-list--vertical__attribute header--custom-text">
+                                                <a class="text-bold" href="{{this.url}}">{{this.name}}</a>
+                                            </li>
+                                            <ul class="nav-list__item-subcategory">
+                                                {{#each this.nodes}}
+                                                <li class="nav-tools-list--vertical__attribute header--custom-text">
+                                                    <a class="text-normal" href="{{this.url}}">{{this.name}}</a>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                            {{/each}}
+                                        </ul>
+                                        <!-- /.nav-list__item-subcategory -->
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="subcategorires header--custom-background">
+                            {{#each menu}} {{#if this.nodes}}
+                            <div class="nav-tools-list--vertical__subitem-container" data-toggle="{{@index}}">
+                                <ul class="grid-list">
+                                    {{#each this.nodes}}
+                                    <li class="nav-tools-list--vertical__subitem header--custom-text">
+                                        <a href="{{this.url}}" class="">{{this.name}}</a>
+                                        <ul class="nav-tools-list--vertical__attribute_container">
+                                            {{#each this.nodes}}
+                                            <li class="nav-tools-list--vertical__attribute header--custom-text">
+                                                <a href="{{this.url}}" class="">{{this.name}}</a>
+                                            </li>
+                                            {{/each}}
+                                        </ul>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            {{/if}} {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="contenedor-nav">
+            <ul class="navbar">
+                <li class="decohogar">
+                    <a href="/decohogar" class="link-nav">Decohogar</a>
+
+                    <ul>
+                        <li><a href="/decohogar-adornos-y-decoraci%C3%B3n">Adornos y Decoración</a></li>
+                        <li><a href="/decohogar-organizacion-y-limpieza">Organización y Limpieza</a></li>
+                        <li><a href="/decohogar-jardin-y-aire-libre">Jardín y Aire Libre</a></li>
+                        <li><a href="/decohogar">Ver Todo</a></li>
+                    </ul>
+                </li>
+
+                <li class="cocina">
+                    <a href="/cocina" class="link-nav">Cocina</a>
+
+                    <ul>
+                        <li><a href="/cocina-organizaci%C3%B3n">Organización</a></li>
+                        <li><a href="/cocina-utensilios">Utensillos</a></li>
+                        <li><a href="/cocina">Ver Todo</a></li>
+                    </ul>
+                </li>
+
+                <li class="deporte">
+                    <a href="/deporte" class="link-nav">Deporte</a>
+
+                    <ul>
+                        <li><a href="/deporte-accesorios">Accesorios</a></li>
+                        <li><a href="/gym-en-casa">Gym en casa</a></li>
+                        <li><a href="/deporte-pesas-y-mancuernas">Pesas y Mancuernas</a></li>
+                        <li><a href="/deporte">Ver Todo</a></li>
+                    </ul>
+                </li>
+
+                <li class="mascotas">
+                    <a href="/mascotas" class="link-nav">Mascotas</a>
+
+                    <ul>
+                        <li><a href="/mascotas-casas-y-camas">Casas y Camas</a></li>
+                        <li><a href="/mascotas-higiene-y-cuidado">Higiene y Cuidados</a></li>
+                        <li><a href="/mascotas-entretenci%C3%B3n">Entretención</a></li>
+                        <li><a href="/mascotas-paseo">Paseo</a></li>
+                        <li><a href="/mascotas-platos-y-dispensadores">Platos y Dispensadores</a></li>
+                        <li><a href="/mascotas-rascadores">Rascadores</a></li>
+                        <li><a href="/mascotas">Ver Todo</a></li>
+                    </ul>
+                </li>
+
+                <li class="infantil">
+                    <a href="/infantil" class="link-nav">Infantil</a>
+
+                    <ul>
+                        <li><a href="/infantil-accesorios">Accesorios</a></li>
+                        <li><a href="/infantil-bebes">Bebés</a></li>
+                        <li><a href="/infantil-juguetes">Juguetes</a></li>
+                        <li><a href="/infantil-mochilas">Mochilas</a></li>
+                        <li><a href="/infantil-vasos-y-botellas">Vasos y Botellas</a></li>
+                        <li><a href="/infantil">Ver Todo</a></li>
+                    </ul>
+                </li>
+
+                <li class="belleza">
+                    <a href="/belleza" class="link-nav">Belleza</a>
+
+                    <ul>
+                        <li><a href="/belleza-accesorios">Accesorios</a></li>
+                        <li><a href="/belleza-maqullaje">Maquillaje</a></li>
+                        <li><a href="/belleza-spa">Spa</a></li>
+                        <li><a href="/belleza">Ver Todo</a></li>
+                    </ul>
+                </li>
+
+                <li class="papeleria">
+                    <a href="/escritorio" class="link-nav">Escritorio</a>
+
+                    <ul>
+                        <li><a href="/escritorio-gamer">Gamer</a></li>
+                        <li><a href="/escritorio-papeleria">Papelería</a></li>
+                        <li><a href="/escritorio">Ver Todo</a></li>
+                    </ul>
+                </li>
+
+                <li class="esenciales">
+                    <a href="/primavera-verano" class="link-nav esenciales">Primavera - Verano</a>
+                </li>
+
+                <li class="neutro">
+                    <a href="/quienes-somos" class="link-nav">Quiénes Somos</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
