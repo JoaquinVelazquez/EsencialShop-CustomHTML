@@ -942,10 +942,6 @@ header .nav-tools-header__categories {
         flex-direction: column
     }
 
-    .nav-footer-about p {
-        order: 1
-    }
-
     .nav-footer-about p,
     .nav-footer-about a,
     .nav-footer-about .nav-tools-header__top-bound #nav-list .nav-list__item--more .nav-list__item .nav-list__item-subcategory a+.nav-list__item-attributes a,
@@ -2005,8 +2001,7 @@ span[class*="fi-rr-"]:before {
 }
 
 .navbar li ul {
-    display: none;
-    visibility: none;
+    visibility: hidden;
     position: absolute;
     min-width: 140px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -2036,7 +2031,7 @@ span[class*="fi-rr-"]:before {
 
 @media (max-width: 768px) {
     .navbar {
-        display: none;
+        visibility: hidden;
     }
 }
 
@@ -2139,7 +2134,6 @@ span[class*="fi-rr-"]:before {
 }
 
 .neutro a {
-    margin-left: 70px;
     border: none;
 }
 
@@ -2622,11 +2616,11 @@ span[class*="fi-rr-"]:before {
 }
 
 .invisible {
-    display: none;
+    visibility: hidden;
 }
 
 .visible {
-    display: block;
+    visibility: visible;
 }
 
 .categorias {

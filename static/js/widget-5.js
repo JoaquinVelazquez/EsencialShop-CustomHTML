@@ -4,7 +4,7 @@ if (URLactual == "/quienes-somos") {
     if (document.querySelector(".ui-search")) {
         const ui_search = document.querySelector(".ui-search");
 
-        ui_search.classList.toggle("invisible");
+        ui_search.remove();
 
         let main = document.querySelector("#root-app");
 
@@ -164,7 +164,7 @@ if (URLactual == "/quienes-somos") {
     } else if (document.querySelector(".ui-search--zrp")) {
         const ui_search = document.querySelector(".ui-search--zrp");
 
-        ui_search.classList.toggle("invisible");
+        ui_search.remove();
 
         let main = document.querySelector("#root-app");
 
